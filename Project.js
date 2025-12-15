@@ -7,7 +7,7 @@ const projects = [
             "설명: 네온 HUD 스타일을 입힌 레트로 스네이크 게임으로, 단순 조작에서도 시각적 몰입감을 높이는 것이 목표였습니다.\n\n문제: 기존 스네이크 게임은 단순 UI와 낮은 가시성 때문에 반복 플레이 동기가 약했고, 플레이 난이도 조절과 점수 피드백 요소도 부족했습니다.\n\n해결: 네온 HUD 테마를 적용해 시각적 임팩트를 강화하고, 점수 시스템·속도 상승·경계 애니메이션을 추가해 플레이 몰입도와 반복성을 높였습니다.",
         image: "./img/snake.png",
         url: "",
-        tech:["React",
+        tech: ["React",
             "HTML Canvas",
             "Game Loop",
             "State Management",
@@ -50,16 +50,21 @@ const projects = [
             "LocalStorage",
             "Responsive Layout",
         ],
-        
+
     },
     {
         title: "Toss",
         type: "mobile web",
         days: "2025.06 ~ 2025.08",
-        tech:"",
+        tech: "",
         description:
             "설명: 토스의 심플한 UI·UX를 웹 형태로 재현해보는 실험적 프로젝트입니다.\n\n문제: 토스 UI는 간결함이 핵심이지만, 이를 웹에서 그대로 구현하려 하면 여백·타이포·모션의 균형이 무너져 UX가 부자연스러워지는 이슈가 있었습니다.\n\n해결: 핵심 인터랙션과 레이아웃 원리를 분해해 적용하고, 여백·정렬·전환 애니메이션을 최소 단위로 재구성해 실제 토스의 ‘가벼운 흐름’을 최대한 복제했습니다.",
-            image: "./img/toss.png",
+        image: "./img/toss.png",
+        tech: [
+            "HTML",
+            "CSS",
+            "JavaScript",
+        ],
     },
 ];
 
