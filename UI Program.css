@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+:root {
+    --cir: #fff
+}
+
+/* UI Program.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* 전체 레이아웃 */
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+/* 왼쪽 nav */
+#nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    background: linear-gradient(to bottom, #001011, #24243e);
+    transition: width 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    --webkit-scrollbar: none;
+    scrollbar-width: none;
+    border-right: 1px solid #222;
+    z-index: 999;
+}
+
+#nav.active {
+    width: 0;
+    border: none;
+    font-size: 0;
+}
+
+/* nav 안 스크롤 영역 */
+.navigation {
+    flex: 1;
+}
+
+/* nav 카드 리스트 */
+#itemBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    list-style: none;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.nav-item {
+    position: relative;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+    border-radius: 1px;
+    border: 0.5px solid #59D3D1;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.5s;
+    font-size: 32px;
+    margin: 3px;
+    padding: 3px;
+    transform: scale(0.8) translateX(-10px);
+    z-index: 1;
+}
+
+.nav-item:hover::before {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.nav-item.active::before {
+    box-shadow: 0 0 8px #24243e;
+}
+
+.nav-item:nth-child(1) {
+    width: 100%;
+}
+
+.nav-item:hover {
+    background-color: #222;
+    transform: translateX(7px);
+    transition: 0.5s;
+    box-shadow: 1px 1px 5px rgba(25, 211, 218, 0.5);
+}
+
+.nav-item.active {
+    position: relative;
+    background-color: #24243e;
+    border: 0.5px solid rgb(29, 221, 218);
+    padding: 3px;
+    transform: scale(1.2) translateX(5px);
+    transition: all 0.6s ease;
+    box-shadow: -6px 8px 12px rgba(25, 211, 218, 0.5);
+    background-image:
+        radial-gradient(ellipse at 31% 61%, rgb(60, 0, 110) 0, #0000 65%),
+        radial-gradient(ellipse at 35% 42%, rgb(60, 0, 110) 0, #0000 65%),
+        radial-gradient(ellipse at 70% 30%, rgb(187, 0, 120) 0, #0000 45%),
+        radial-gradient(ellipse at 70% 70%, rgb(0, 160, 100) 0, #0000 45%),
+        radial-gradient(ellipse at 47% 115%, rgb(0, 120, 140) 0, #0000 40%);
+}
+
+.nav-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-weight: 600;
+    font-size: 5px;
+    z-index: 1;
+    color: #59D3D1;
+    font-size: 32px;
+}
+
+.nav-meta {
+    position: relative;
+    opacity: 0.9;
+    font-size: 2px;
+    z-index: 1;
+}
+
+/* clip 핸들 */
+.clip {
+    --r: 3px; /* control the radius */
+    position: relative;
+    /* width: 15%; */
+    height: 100px;
+    background: #59D3D1 border-box;
+    position: absolute;
+    border-top: 1px solid #222;
+    border-right: 1px solid #222;
+    border-bottom: 1px solid #222;
+    top: 2px;
+    left: 149px;
+    right: -20px;
+    /* border-radius: 0 2px 2px 0; */
+    transition: 0.1s all linear;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 50px;
+    font-weight: 900;
+    cursor: pointer;
+    line-height: 1.7;
+    /* control the height */
+    padding-inline: .5em;
+    border-bottom: var(--r) solid #0000;
+    border-radius: var(--r)/0 var(--r) calc(2*var(--r)) 0;
+    mask:
+        radial-gradient(var(--r) at 100% 100%, #0000 98%, #000 101%) 0 100%/var(--r) 100% no-repeat,
+        conic-gradient(#000 0 0) padding-box;
+    /* border-box is needed for a gradient coloration */
+    width: fit-content;
+}
+
+.clip.active {
+    left: 0;
+    width: 10px;
+    transform: translateX(0);
+    font-size: 0;
+    transition: 0.1s all linear;
+}
+
+.clip.active::before {
+    content: "›";
+    font-size: 8px;
+    pointer-events: none;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+/* 오른쪽 상세 영역 - nav 크기 변화에 반응 */
+#projectView {
+    position: fixed;
+    top: 0;
+    left: 50px;
+    /* nav의 기본 너비 */
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(./img/wellpaper.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    transition: left 0.2s ease;
+    /* nav와 동일한 transition */
+}
+
+/* nav가 접혔을 때 projectView가 전체 너비 차지 */
+#nav.active~#projectView {
+    left: 0;
+}
+
+/* 3:1 레이아웃 */
+.project-layout {
+    display: none;
+    position: relative;
+    width: 70%;
+    height: 70%;
+    border: 0.5px solid #59D3D1;
+    gap: 1px;
+    align-items: stretch;
+    /* padding: 2px; */
+    border-radius: 2px;
+    background: transparent;
+    transition: all 0.5s ease-in-out;
+    animation: slide-out;
+}
+
+.project-layout.active::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 2px;
+    width: 50px;
+    height: 3px;
+    background: url(img/5443249.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: skew(-10deg);
+    border-radius: 1px;
+    border: 0.5px solid #A62C2E;
+    z-index: 99;
+}
+
+.project-layout.active::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 2px;
+    width: 50px;
+    height: 3px;
+    background: url(img/5443249.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 99;
+    transform: skew(355deg);
+    border-radius: 1px;
+    border: 0.5px solid #A62C2E;
+}
+
+/* 등장(열림) */
+.project-layout.active {
+    display: flex;
+    animation: slide-in 0.45s cubic-bezier(0.755, 0.050, 0.855, 0.060) forwards;
+    overflow: hidden;
+    box-shadow: 3px 3px 5px #fff;
+    background-color: #0c2a2a;
+}
+
+.project-layout.active:hover {
+    box-shadow: 3px 3px 5px #59D3D1;
+}
+
+/* 퇴장(닫힘) */
+.project-layout.closing {
+    display: flex;
+    animation: slide-out 0.45s cubic-bezier(0.755, 0.050, 0.855, 0.060) forwards;
+}
+
+/* 3 (이미지 영역) */
+.project-image {
+    flex: 2;
+    border-radius: 2px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+}
+
+.project-image:hover {
+    transform: scale(1.05);
+    transition: all 0.5s ease-in-out;
+}
+
+.project-image .image-placeholder {
+    font-size: 4px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #aaa;
+}
+
+/* 1 (텍스트 영역) */
+.project-text {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 3px;
+    color: #59D3D1;
+    background: linear-gradient(0deg,#ffffff44 30%,#00000088 100%);
+    border-radius: 2px;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#projectTitle {
+    top: 0;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+#projectMeta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 1px;
+    font-size: 25px;
+    /* opacity: 0.8; */
+    white-space: pre-line;
+    list-style: disc;
+}
+
+#projectDesc {
+    font-size: 20px;
+    line-height: 1.5;
+    opacity: 0.9;
+    white-space: pre-line;
+}
+#projectTech{
+    font-size: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.tech-tag{
+    border: 1px solid #59D3D1;
+    border-radius: 10px;
+    padding: 5px 7px;
+}
+
+/*        keyFrames           */
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        transform: translate(100px, 0) scale(0.95);
+        filter: blur(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1) skew(-7deg);
+        filter: blur(0);
+    }
+}
+
+/* 퇴장 애니 */
+@keyframes slide-out {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+        filter: blur(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-100px, 0) scale(0);
+        filter: blur(10px);
+    }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="UI Program.css" />
+    <title>Project Viewer</title>
+  </head>
+  <body>
+    <!-- 왼쪽 nav -->
+    <nav id="nav">
+      <div class="navigation">
+        <ul id="itemBox">
+          <!-- 템플릿: JS에서 clone해서 씀 -->
+          <div class="nav-items">
+            <li id="item-template" class="nav-item" style="display: none" id="nav-item">
+              <div class="nav-title">기본 아이템</div>
+              <div class="nav-meta"></div>
+            </li>
+          </div>
+        </ul>
+      </div>
+      <div class="clip">‹</div>
+    </nav>
+
+    <!-- 오른쪽 상세 영역 -->
+    <main id="projectView">
+      <section class="project-layout" id="project-layout">
+        <!-- 3 : 1 중에서 3 (이미지 영역) -->
+        <div id="projectImage" class="project-image">
+          <span class="image-placeholder">이미지 준비중.</span>
+        </div>
+
+        <!-- 3 : 1 중에서 1 (텍스트 영역) -->
+        <div class="project-text">
+          <h1 id="projectTitle">프로젝트를 선택해 주세요</h1>
+          <p id="projectMeta">
+            왼쪽 카드에서 프로젝트를 선택하면 제작일수와 타입이 표시됩니다.
+          </p>
+          <p id="projectDesc">
+            왼쪽 nav의 카드를 클릭하면 여기에서 이미지와 함께 상세 설명이
+            나타납니다.
+          </p>
+          <p id="projectTech">기술</p>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="UI Program.js"></script>
+  </body>
+</html>
