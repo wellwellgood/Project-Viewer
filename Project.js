@@ -61,13 +61,12 @@ const projects = [
             "설명: 토스의 심플한 UI·UX를 웹 형태로 재현해보는 실험적 프로젝트입니다.\n\n문제: 토스 UI는 간결함이 핵심이지만, 이를 웹에서 그대로 구현하려 하면 여백·타이포·모션의 균형이 무너져 UX가 부자연스러워지는 이슈가 있었습니다.\n\n해결: 핵심 인터랙션과 레이아웃 원리를 분해해 적용하고, 여백·정렬·전환 애니메이션을 최소 단위로 재구성해 실제 토스의 ‘가벼운 흐름’을 최대한 복제했습니다.",
         image: "./img/toss.png",
         tech: [
-            "HTML",
+            "React",
             "CSS",
-            "JavaScript",
+            "Securities API",
             "Responsive Layout",
-            "Scroll Interaction",
             "Semantic Markup",
-            "SEO Basics",
+            "Fake Store API",
         ],
     },
 ];
