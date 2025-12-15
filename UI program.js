@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const clone = template.cloneNode(true);
         clone.removeAttribute("id");
         clone.style.display = "flex";
-        clone.style.flexDirection = "column";
-        clone.style.justifyContent = "center";
+        clone.style.flexDirection = "row";
+        clone.style.justifyContent = "flex-start";
         clone.classList.add("nav-item");
         clone.dataset.index = index;
 
