@@ -64,6 +64,10 @@ const projects = [
             "HTML",
             "CSS",
             "JavaScript",
+            "Responsive Layout",
+            "Scroll Interaction",
+            "Semantic Markup",
+            "SEO Basics",
         ],
     },
 ];
