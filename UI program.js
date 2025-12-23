@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const projectDescEl = document.getElementById("projectDesc");
     const projectlayout = document.getElementById("project-layout");
     const projectTechEl = document.getElementById("projectTech");
+    const projectTextEl = document.querySelector(".project-text");
 
     // 1) nav 카드 자동 생성
     projects.forEach((p, index) => {
@@ -37,7 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 2) 상세 뷰 렌더 함수
     function renderProject(project) {
-        if (!project) return;
+        if (!projectTextEl) return;
+
+        const prevBehavior = projectTextEl.style.scrollBehavior;
+        projectTextEl.style.scrollBehavior = "auto";
 
         // 제목
         if (projectTitleEl) {
@@ -98,6 +102,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 placeholder.style.display = imgUrl ? "none" : "block";
             }
         }
+        requestAnimationFrame(() => {
+            projectTextEl.scrollTo({ top: 0, left: 0, behavior: "auto" });
+            projectTextEl.style.scrollBehavior = prevBehavior;
+        });
     }
 
     // 3) nav 카드 클릭 이벤트
